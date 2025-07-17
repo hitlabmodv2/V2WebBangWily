@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Download Script Bot - BangWily</title>
   <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/zrezka.jpg">
-  <link rel="shortcut icon" type="image/jpeg" href="https://files.catbox.moe/zrezka.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="https://files.catbox.moe/azbrp4.jpg">
   <style>
     :root {
       --bg-color: #1a1a1a;
@@ -573,6 +573,315 @@
       transform: scale(1.1);
     }
 
+    /* Tutorial Section Styles - Simple & Clean */
+    .tutorial-section {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border: 2px solid var(--accent-color);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+
+    .tutorial-section h3 {
+      color: var(--accent-color);
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Tutorial Spoiler Container */
+    .tutorial-spoiler-container {
+      background: var(--card-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] .tutorial-spoiler-container {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .tutorial-spoiler-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(111, 66, 193, 0.2);
+      border-color: var(--accent-color);
+    }
+
+    /* Tutorial Spoiler Header */
+    .tutorial-spoiler-header {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tutorial-spoiler-header:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .tutorial-spoiler-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .tutorial-icon {
+      font-size: 24px;
+      min-width: 30px;
+    }
+
+    .tutorial-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .tutorial-spoiler-arrow {
+      background: var(--accent-color);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .tutorial-spoiler-arrow.open {
+      transform: rotate(180deg);
+      background: var(--success-color);
+    }
+
+    /* Tutorial Spoiler Content */
+    .tutorial-spoiler-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .tutorial-spoiler-content.open {
+      max-height: none;
+      overflow: visible;
+      padding: 25px;
+    }
+
+    /* Video Container Styles */
+    .video-container {
+      text-align: center;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      margin-bottom: 15px;
+    }
+
+    .video-description {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      font-size: 14px;
+      color: var(--subtext-color);
+      text-align: left;
+      margin-top: 15px;
+    }
+
+    .video-description strong {
+      color: var(--text-color);
+    }
+
+    /* Setup Steps Styles */
+    .setup-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .step-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateX(5px);
+    }
+
+    .step-number {
+      background: var(--accent-color);
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .step-details {
+      flex: 1;
+    }
+
+    .step-details h4 {
+      color: var(--text-color);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .step-details ul, .step-details ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .step-details li {
+      margin-bottom: 5px;
+      color: var(--subtext-color);
+      font-size: 14px;
+    }
+
+    .step-details p {
+      color: var(--subtext-color);
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .step-details strong {
+      color: var(--text-color);
+    }
+
+    /* Code Block Styles */
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--gray-bar);
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+
+    [data-theme="light"] .code-block {
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .code-block code {
+      color: #00ff88;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    [data-theme="light"] .code-block code {
+      color: #006633;
+    }
+
+    .code-preview {
+      margin: 15px 0;
+    }
+
+    .code-preview strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-color);
+      font-size: 14px;
+    }
+
+    /* Troubleshooting Grid */
+    .troubleshooting-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .trouble-card {
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid var(--danger-color);
+      border-radius: 8px;
+      padding: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .trouble-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+    }
+
+    .trouble-card h4 {
+      color: var(--danger-color);
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .trouble-card p {
+      color: var(--text-color);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .trouble-card code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #00ff88;
+    }
+
+    /* Tips Grid */
+    .tips-grid h4 {
+      color: var(--success-color);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .tips-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+    }
+
+    .tip-item {
+      background: rgba(40, 167, 69, 0.1);
+      border: 1px solid var(--success-color);
+      border-radius: 8px;
+      padding: 12px 15px;
+      color: var(--text-color);
+      font-size: 13px;
+      transition: all 0.3s ease;
+    }
+
+    .tip-item:hover {
+      transform: translateX(3px);
+      box-shadow: 0 3px 10px rgba(40, 167, 69, 0.2);
+    }
+
+    .tip-item strong {
+      color: var(--success-color);
+    }
+
     @media (max-width: 768px) {
       .container {
         margin: 10px;
@@ -590,6 +899,36 @@
       .donation-info {
         grid-template-columns: 1fr;
         gap: 15px;
+      }
+
+      .tutorial-section {
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .tutorial-section h3 {
+        font-size: 1.5rem;
+      }
+
+      .video-container {
+        padding: 15px;
+      }
+
+      .video-container iframe {
+        height: 250px;
+      }
+
+      .tutorial-step {
+        padding: 20px;
+      }
+
+      .tutorial-step h4 {
+        font-size: 1.1rem;
+      }
+
+      .code-block {
+        padding: 12px;
+        font-size: 12px;
       }
 
       .pagination {
@@ -657,6 +996,68 @@
         font-size: 0.8rem;
         min-width: 100px;
       }
+
+      /* Tutorial Mobile Responsive */
+      .tutorial-spoiler-header {
+        padding: 15px 20px;
+      }
+
+      .tutorial-icon {
+        font-size: 20px;
+      }
+
+      .tutorial-title {
+        font-size: 1rem;
+      }
+
+      .tutorial-spoiler-arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+      }
+
+      .tutorial-spoiler-content.open {
+        padding: 20px;
+      }
+
+      .video-container iframe {
+        height: 250px;
+      }
+
+      .step-item {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        align-self: flex-start;
+      }
+
+      .troubleshooting-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .tips-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .trouble-card, .tip-item {
+        padding: 10px 12px;
+      }
+
+      .trouble-card h4 {
+        font-size: 13px;
+      }
+
+      .trouble-card p, .tip-item {
+        font-size: 12px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -680,6 +1081,46 @@
 
       .donation-card {
         padding: 15px;
+      }
+
+      .tutorial-section {
+        padding: 15px;
+      }
+
+      .tutorial-section h3 {
+        font-size: 1.3rem;
+      }
+
+      .video-container iframe {
+        height: 200px;
+      }
+
+      .tutorial-step {
+        padding: 15px;
+      }
+
+      .tutorial-step h4 {
+        font-size: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+      }
+
+      .step-content {
+        font-size: 14px;
+      }
+
+      .code-block {
+        padding: 10px;
+        font-size: 11px;
+      }
+
+      .troubleshooting, .tips-section {
+        padding: 15px;
+      }
+
+      .trouble-item, .tips-section li {
+        padding: 10px 12px;
       }
     }
   </style>
@@ -972,6 +1413,165 @@
       <button class="pagination-btn" onclick="goToPage(3)">3</button>
     </div>
 
+    <!-- Tutorial Section dengan Spoiler -->
+    <div class="tutorial-section">
+      <h3>📚 Tutorial Lengkap Setup Bot di Pterodactyl Panel</h3>
+      
+      <!-- Video Tutorial Spoiler -->
+      <div class="tutorial-spoiler-container">
+        <div class="tutorial-spoiler-header" onclick="toggleTutorialSpoiler('video')">
+          <div class="tutorial-spoiler-info">
+            <span class="tutorial-icon">🎥</span>
+            <span class="tutorial-title">Video Tutorial Setup Bot Pterodactyl</span>
+          </div>
+          <span class="tutorial-spoiler-arrow" id="video-arrow">▼</span>
+        </div>
+        <div class="tutorial-spoiler-content" id="video-content">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/-QanoWGk1Pw" 
+              title="Tutorial Setup Bot di Pterodactyl Panel"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+            <p class="video-description">
+              <strong>🎯 Penjelasan Lengkap:</strong> Video ini menunjukkan cara setup bot WhatsApp di panel Pterodactyl mulai dari upload script, instalasi dependencies, hingga menjalankan bot dengan sukses.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Langkah Setup Spoiler -->
+      <div class="tutorial-spoiler-container">
+        <div class="tutorial-spoiler-header" onclick="toggleTutorialSpoiler('setup')">
+          <div class="tutorial-spoiler-info">
+            <span class="tutorial-icon">🔧</span>
+            <span class="tutorial-title">Langkah-Langkah Setup Bot</span>
+          </div>
+          <span class="tutorial-spoiler-arrow" id="setup-arrow">▼</span>
+        </div>
+        <div class="tutorial-spoiler-content" id="setup-content">
+          <div class="setup-steps">
+            
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-details">
+                <h4>Persiapan Awal</h4>
+                <ul>
+                  <li>✅ Panel Pterodactyl dengan akses server</li>
+                  <li>✅ Script bot auto reaction story (download dari atas)</li>
+                  <li>✅ File manager atau akses SFTP</li>
+                  <li>✅ Koneksi internet yang stabil</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-details">
+                <h4>Upload Script ke Server</h4>
+                <ol>
+                  <li>Buka panel Pterodactyl Anda</li>
+                  <li>Masuk ke server bot WhatsApp</li>
+                  <li>Buka menu <strong>File Manager</strong></li>
+                  <li>Upload file script bot yang sudah didownload</li>
+                  <li>Extract file zip jika diperlukan</li>
+                </ol>
+                <div class="code-preview">
+                  <strong>📁 Struktur folder yang benar:</strong>
+                  <div class="code-block">
+                    <code>/home/container/<br>├── package.json<br>├── index.js<br>├── config.js<br>└── node_modules/</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-details">
+                <h4>Instalasi Dependencies</h4>
+                <p>Jalankan perintah di console Pterodactyl:</p>
+                <div class="code-block">
+                  <code>npm install</code>
+                </div>
+                <p><strong>Atau install manual:</strong></p>
+                <div class="code-block">
+                  <code>npm install @whiskeysockets/baileys qrcode-terminal fs path</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-details">
+                <h4>Konfigurasi Bot</h4>
+                <p>Edit file <strong>config.js</strong> atau <strong>index.js</strong>:</p>
+                <div class="code-block">
+                  <code>const config = {<br>&nbsp;&nbsp;autoReaction: true,<br>&nbsp;&nbsp;selfMode: false,<br>&nbsp;&nbsp;prefix: '.',<br>&nbsp;&nbsp;ownerNumber: '6289688206739'<br>}</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-details">
+                <h4>Menjalankan Bot</h4>
+                <div class="code-block">
+                  <code>node index.js</code>
+                </div>
+                <p>📱 <strong>Scan QR Code yang muncul dengan WhatsApp Anda</strong></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Troubleshooting Spoiler -->
+      <div class="tutorial-spoiler-container">
+        <div class="tutorial-spoiler-header" onclick="toggleTutorialSpoiler('troubleshooting')">
+          <div class="tutorial-spoiler-info">
+            <span class="tutorial-icon">🔧</span>
+            <span class="tutorial-title">Troubleshooting & Tips</span>
+          </div>
+          <span class="tutorial-spoiler-arrow" id="troubleshooting-arrow">▼</span>
+        </div>
+        <div class="tutorial-spoiler-content" id="troubleshooting-content">
+          <div class="troubleshooting-grid">
+            <div class="trouble-card">
+              <h4>❌ Error "Module not found"</h4>
+              <p><strong>Solusi:</strong> Jalankan <code>npm install</code> terlebih dahulu</p>
+            </div>
+            <div class="trouble-card">
+              <h4>❌ QR Code tidak muncul</h4>
+              <p><strong>Solusi:</strong> Pastikan terminal/console dapat menampilkan QR code</p>
+            </div>
+            <div class="trouble-card">
+              <h4>❌ Bot tidak merespon</h4>
+              <p><strong>Solusi:</strong> Cek koneksi internet dan restart bot</p>
+            </div>
+            <div class="trouble-card">
+              <h4>❌ Session terputus</h4>
+              <p><strong>Solusi:</strong> Hapus folder session dan scan QR code ulang</p>
+            </div>
+          </div>
+          
+          <div class="tips-grid">
+            <h4>💡 Tips & Tricks</h4>
+            <div class="tips-list">
+              <div class="tip-item">🔄 Gunakan <strong>PM2</strong> untuk auto restart bot</div>
+              <div class="tip-item">📊 Monitor resource usage di panel</div>
+              <div class="tip-item">💾 Backup session secara berkala</div>
+              <div class="tip-item">🔐 Jangan share session folder dengan orang lain</div>
+              <div class="tip-item">⚡ Gunakan server dengan RAM minimal 512MB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <div class="note-section">
       <h3>⚠️ NOTE PENTING</h3>
       <p>NO JUAL KAMVRET INI FREE -_- DAN GUNAKAN DENGAN BIJAK</p>
@@ -1179,6 +1779,24 @@
       }
     `;
     document.head.appendChild(style);
+
+    // Tutorial Spoiler Functions
+    function toggleTutorialSpoiler(spoilerId) {
+      const content = document.getElementById(`${spoilerId}-content`);
+      const arrow = document.getElementById(`${spoilerId}-arrow`);
+      
+      if (content && arrow) {
+        const isOpen = content.classList.contains('open');
+        
+        if (isOpen) {
+          content.classList.remove('open');
+          arrow.classList.remove('open');
+        } else {
+          content.classList.add('open');
+          arrow.classList.add('open');
+        }
+      }
+    }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </body>

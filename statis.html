@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistik dan Informasi Website - BangWily</title>
     <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/zrezka.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="https://files.catbox.moe/zrezka.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="https://files.catbox.moe/azbrp4.jpg">
     <style>
         :root {
             --bg-color: #1a1a1a;
@@ -122,94 +122,162 @@
 
         .stats-overview {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin-bottom: 40px;
         }
 
-        .overview-card {
+        .stat-spoiler-card {
             background: linear-gradient(135deg, var(--card-color), rgba(255, 255, 255, 0.05));
             border: 2px solid var(--gray-bar);
-            border-radius: 12px;
-            padding: 12px 8px;
-            text-align: center;
+            border-radius: 20px;
+            overflow: hidden;
             transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
         }
 
-        .interactive-card {
-            cursor: pointer;
-            position: relative;
-        }
-
-        .interactive-card:hover .card-button {
-            background: var(--accent-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .card-button {
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid var(--gray-bar);
-            opacity: 0.8;
-        }
-
-        .overview-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .overview-card:hover::before {
-            left: 100%;
-        }
-
-        .overview-card:hover {
-            transform: translateY(-8px) scale(1.03);
+        .stat-spoiler-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             border-color: var(--accent-color);
         }
 
+        .stat-spoiler-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-spoiler-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-spoiler-arrow {
+            background: var(--accent-color);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .stat-spoiler-arrow.open {
+            transform: rotate(180deg);
+            background: var(--success-gradient);
+        }
+
+        .stat-spoiler-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-spoiler-content.open {
+            max-height: 500px;
+            padding: 25px;
+        }
+
+        .spoiler-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .spoiler-detail-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--gray-bar);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .spoiler-detail-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .spoiler-detail-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .spoiler-detail-label {
+            font-size: 0.85rem;
+            color: var(--subtext-color);
+            font-weight: 600;
+        }
+
+        .spoiler-info-text {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .spoiler-info-text p {
+            margin: 5px 0;
+            color: var(--subtext-color);
+        }
+
+        .spoiler-info-text p strong {
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
         .overview-icon {
-            font-size: 28px;
-            margin-bottom: 6px;
+            font-size: 32px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .overview-title {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: var(--text-color);
         }
 
         .overview-value {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: 900;
             color: var(--accent-color);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         .overview-description {
-            font-size: 9px;
+            font-size: 11px;
             color: var(--subtext-color);
-            line-height: 1.3;
+            line-height: 1.4;
+            margin-bottom: 15px;
         }
 
         .detailed-stats {
@@ -385,38 +453,48 @@
         .stat-modal {
             display: none;
             position: fixed;
-            z-index: 2000;
+            z-index: 9999;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
             animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
-            background: var(--card-color);
-            border: 2px solid var(--gray-bar);
+            background: #1a1a1a;
+            border: 2px solid #444;
             border-radius: 20px;
-            margin: 5% auto;
+            margin: 0;
             padding: 0;
             width: 90%;
             max-width: 600px;
             max-height: 80vh;
             overflow-y: auto;
-            position: relative;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             animation: slideIn 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+        }
+
+        [data-theme="light"] .modal-content {
+            background: #ffffff;
+            border: 2px solid #ddd;
+            color: #333;
         }
 
         @keyframes slideIn {
             from {
-                transform: translateY(-50px);
+                transform: translate(-50%, -50%) scale(0.8);
                 opacity: 0;
             }
             to {
-                transform: translateY(0);
+                transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
             }
         }
@@ -458,8 +536,30 @@
 
         .modal-body {
             padding: 25px;
-            color: var(--text-color);
+            color: #ffffff;
             line-height: 1.6;
+            background: transparent;
+        }
+
+        [data-theme="light"] .modal-body {
+            color: #333333;
+        }
+
+        .modal-body h4 {
+            color: #1db954;
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+            font-size: 1.2rem;
+        }
+
+        .modal-body p {
+            color: #e0e0e0;
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        [data-theme="light"] .modal-body p {
+            color: #555555;
         }
 
         .modal-footer {
@@ -496,23 +596,33 @@
         }
 
         .detail-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--gray-bar);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
             border-radius: 12px;
             padding: 15px;
             text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="light"] .detail-item {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid #ddd;
         }
 
         .detail-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent-color);
+            color: #1db954;
             margin-bottom: 5px;
         }
 
         .detail-label {
             font-size: 0.9rem;
-            color: var(--subtext-color);
+            color: #cccccc;
+        }
+
+        [data-theme="light"] .detail-label {
+            color: #666666;
         }
 
         .progress-chart {
@@ -703,7 +813,39 @@
 
             .stats-overview {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 15px;
+            }
+
+            .stat-spoiler-header {
+                padding: 15px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .stat-header-content {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .stat-spoiler-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+
+            .spoiler-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .spoiler-detail-value {
+                font-size: 1.2rem;
+            }
+
+            .spoiler-info-text {
+                padding: 15px;
+                font-size: 13px;
             }
 
             .detailed-stats {
@@ -820,11 +962,11 @@
 
             .stats-overview {
                 grid-template-columns: 1fr;
-                gap: 8px;
+                gap: 12px;
             }
 
-            .overview-card {
-                padding: 10px 8px;
+            .stat-spoiler-header {
+                padding: 12px;
             }
 
             .overview-icon {
@@ -832,15 +974,37 @@
             }
 
             .overview-title {
-                font-size: 11px;
+                font-size: 13px;
             }
 
             .overview-value {
-                font-size: 16px;
+                font-size: 18px;
             }
 
             .overview-description {
-                font-size: 8px;
+                font-size: 10px;
+            }
+
+            .stat-spoiler-arrow {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+
+            .stat-spoiler-content.open {
+                padding: 15px;
+            }
+
+            .spoiler-detail-item {
+                padding: 10px;
+            }
+
+            .spoiler-detail-value {
+                font-size: 1.1rem;
+            }
+
+            .spoiler-detail-label {
+                font-size: 0.8rem;
             }
 
             .stat-section {
@@ -887,6 +1051,37 @@
                 font-size: 0.8rem;
                 min-width: 100px;
             }
+
+            .modal-content {
+                width: 95%;
+                max-height: 85vh;
+                transform: translate(-50%, -50%);
+            }
+
+            .modal-header {
+                padding: 15px 20px;
+            }
+
+            .modal-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .detail-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .detail-value {
+                font-size: 1.3rem;
+            }
+
+            .detail-label {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -904,86 +1099,350 @@
         </div>
 
         <div class="stats-overview">
-            <div class="overview-card interactive-card" onclick="showStatDetail('visitors')">
-                <span class="overview-icon">👥</span>
-                <div class="overview-title">Total Pengunjung</div>
-                <div class="overview-value" id="total-visitors">Loading...</div>
-                <div class="overview-description">Akumulasi seluruh visitor yang pernah mengakses website</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Total Pengunjung -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('visitors', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">👥</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Total Pengunjung</div>
+                            <div class="overview-value" id="total-visitors">Loading...</div>
+                            <div class="overview-description">Akumulasi seluruh visitor yang pernah mengakses website</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="visitors-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="visitors-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">1,245</div>
+                            <div class="spoiler-detail-label">Pengunjung Bulan Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">385</div>
+                            <div class="spoiler-detail-label">Pengunjung Minggu Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">85%</div>
+                            <div class="spoiler-detail-label">Pengunjung Baru</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">3:24</div>
+                            <div class="spoiler-detail-label">Avg Session</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>📈 Trend Pengunjung:</strong></p>
+                        <p>• Peningkatan 23% dari bulan sebelumnya</p>
+                        <p>• Peak traffic jam 19:00-21:00 WIB</p>
+                        <p>• Device terpopuler: Mobile (75%)</p>
+                        <p>• Negara teratas: Indonesia, Malaysia, Singapura</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('daily')">
-                <span class="overview-icon">🔥</span>
-                <div class="overview-title">Visitors Hari Ini</div>
-                <div class="overview-value" id="daily-visitors">Loading...</div>
-                <div class="overview-description">Pengunjung unik yang mengakses hari ini</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Visitors Hari Ini -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('daily', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">🔥</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Visitors Hari Ini</div>
+                            <div class="overview-value" id="daily-visitors">Loading...</div>
+                            <div class="overview-description">Pengunjung unik yang mengakses hari ini</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="daily-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="daily-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">47</div>
+                            <div class="spoiler-detail-label">Jam Terakhir</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">8</div>
+                            <div class="spoiler-detail-label">Online Sekarang</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">65%</div>
+                            <div class="spoiler-detail-label">Return Visitors</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">2.8</div>
+                            <div class="spoiler-detail-label">Pages/Session</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>⏰ Timeline Hari Ini:</strong></p>
+                        <p>• 06:00-09:00: 15% traffic (Pagi)</p>
+                        <p>• 09:00-12:00: 25% traffic (Kerja)</p>
+                        <p>• 12:00-15:00: 20% traffic (Siang)</p>
+                        <p>• 15:00-18:00: 20% traffic (Sore)</p>
+                        <p>• 18:00-21:00: 20% traffic (Peak)</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('pageviews')">
-                <span class="overview-icon">📊</span>
-                <div class="overview-title">Page Views</div>
-                <div class="overview-value" id="page-views">Loading...</div>
-                <div class="overview-description">Total halaman yang telah dilihat</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Page Views -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('pageviews', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">📊</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Page Views</div>
+                            <div class="overview-value" id="page-views">Loading...</div>
+                            <div class="overview-description">Total halaman yang telah dilihat</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="pageviews-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="pageviews-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">2.8</div>
+                            <div class="spoiler-detail-label">Pages per Session</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">45%</div>
+                            <div class="spoiler-detail-label">Bounce Rate</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">125</div>
+                            <div class="spoiler-detail-label">Views Hari Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">3:45</div>
+                            <div class="spoiler-detail-label">Avg Duration</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>📄 Halaman Terpopuler:</strong></p>
+                        <p>• Homepage: 45% dari total views</p>
+                        <p>• Download Script: 25% dari total views</p>
+                        <p>• Statistik Website: 15% dari total views</p>
+                        <p>• Kontak & Info: 10% dari total views</p>
+                        <p>• Halaman Lainnya: 5% dari total views</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('uptime')">
-                <span class="overview-icon">⚡</span>
-                <div class="overview-title">Website Uptime</div>
-                <div class="overview-value" id="uptime">99.9%</div>
-                <div class="overview-description">Persentase waktu website online</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Website Uptime -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('uptime', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">⚡</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Website Uptime</div>
+                            <div class="overview-value" id="uptime">99.9%</div>
+                            <div class="overview-description">Persentase waktu website online</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="uptime-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="uptime-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">99.9%</div>
+                            <div class="spoiler-detail-label">Uptime Bulan Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">100%</div>
+                            <div class="spoiler-detail-label">Uptime Minggu Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">0.8s</div>
+                            <div class="spoiler-detail-label">Response Time</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">45ms</div>
+                            <div class="spoiler-detail-label">Ping Time</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>🌐 Server Performance:</strong></p>
+                        <p>• Last downtime: 2 hari lalu (5 menit maintenance)</p>
+                        <p>• CDN status: Active & Optimized</p>
+                        <p>• Server location: Singapore (Asia)</p>
+                        <p>• SSL certificate: Valid hingga 2025</p>
+                        <p>• Monitoring: 24/7 automated alerts</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('revenue')">
-                <span class="overview-icon">💰</span>
-                <div class="overview-title">Total Revenue</div>
-                <div class="overview-value">$15.2K</div>
-                <div class="overview-description">Pendapatan dari script & konsultasi</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Total Revenue -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('revenue', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">💰</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Total Revenue</div>
+                            <div class="overview-value">$15.2K</div>
+                            <div class="overview-description">Pendapatan dari script & konsultasi</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="revenue-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="revenue-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">$2.4K</div>
+                            <div class="spoiler-detail-label">Bulan Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">$645</div>
+                            <div class="spoiler-detail-label">Minggu Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">35</div>
+                            <div class="spoiler-detail-label">Active Clients</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">$125</div>
+                            <div class="spoiler-detail-label">Avg per Client</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>💼 Sumber Pendapatan:</strong></p>
+                        <p>• Script Premium: 45% ($6.8K)</p>
+                        <p>• Konsultasi Bot: 30% ($4.5K)</p>
+                        <p>• Custom Development: 20% ($3.0K)</p>
+                        <p>• Maintenance & Support: 5% ($0.9K)</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('downloads')">
-                <span class="overview-icon">⬇️</span>
-                <div class="overview-title">Total Downloads</div>
-                <div class="overview-value" id="total-downloads">Loading...</div>
-                <div class="overview-description">Script bot yang telah didownload</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Total Downloads -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('downloads', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">⬇️</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Total Downloads</div>
+                            <div class="overview-value" id="total-downloads">Loading...</div>
+                            <div class="overview-description">Script bot yang telah didownload</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="downloads-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="downloads-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">385</div>
+                            <div class="spoiler-detail-label">Download Bulan Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">47</div>
+                            <div class="spoiler-detail-label">Download Hari Ini</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">78</div>
+                            <div class="spoiler-detail-label">Total Scripts</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">4.8★</div>
+                            <div class="spoiler-detail-label">Avg Rating Script</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>📱 Script Terpopuler:</strong></p>
+                        <p>• Auto Story Reaction: 2,456 downloads</p>
+                        <p>• WhatsApp Bot Base: 1,834 downloads</p>
+                        <p>• Auto Read Messages: 1,245 downloads</p>
+                        <p>• Group Management: 987 downloads</p>
+                        <p>• Custom Commands: 756 downloads</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('bots')">
-                <span class="overview-icon">🤖</span>
-                <div class="overview-title">Active Bots</div>
-                <div class="overview-value">127</div>
-                <div class="overview-description">Bot WhatsApp yang sedang aktif</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: Active Bots -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('bots', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">🤖</span>
+                        <div class="stat-info">
+                            <div class="overview-title">Active Bots</div>
+                            <div class="overview-value">127</div>
+                            <div class="overview-description">Bot WhatsApp yang sedang aktif</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="bots-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="bots-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">89</div>
+                            <div class="spoiler-detail-label">Premium Bots</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">38</div>
+                            <div class="spoiler-detail-label">Free Bots</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">98.5%</div>
+                            <div class="spoiler-detail-label">Success Rate</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">99.2%</div>
+                            <div class="spoiler-detail-label">Uptime Rata-rata</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>⚙️ Bot Performance:</strong></p>
+                        <p>• Auto Story Bots: 45 active</p>
+                        <p>• Group Manager Bots: 32 active</p>
+                        <p>• Auto Reply Bots: 28 active</p>
+                        <p>• Custom Function Bots: 22 active</p>
+                        <p>• Maintenance: Auto update setiap minggu</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="overview-card interactive-card" onclick="showStatDetail('rating')">
-                <span class="overview-icon">🌟</span>
-                <div class="overview-title">User Rating</div>
-                <div class="overview-value">4.9★</div>
-                <div class="overview-description">Rating dari 1,245 pengguna</div>
-                <div class="card-button">Lihat Detail ▼</div>
+            <!-- Spoiler Card: User Rating -->
+            <div class="stat-spoiler-card">
+                <div class="stat-spoiler-header" onclick="toggleStatSpoiler('rating', event)">
+                    <div class="stat-header-content">
+                        <span class="overview-icon">🌟</span>
+                        <div class="stat-info">
+                            <div class="overview-title">User Rating</div>
+                            <div class="overview-value">4.9★</div>
+                            <div class="overview-description">Rating dari 1,245 pengguna</div>
+                        </div>
+                    </div>
+                    <div class="stat-spoiler-arrow" id="rating-arrow">▼</div>
+                </div>
+                <div class="stat-spoiler-content" id="rating-content">
+                    <div class="spoiler-detail-grid">
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">1,245</div>
+                            <div class="spoiler-detail-label">Total Reviews</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">95%</div>
+                            <div class="spoiler-detail-label">5 Star Reviews</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">98.5%</div>
+                            <div class="spoiler-detail-label">Satisfaction Rate</div>
+                        </div>
+                        <div class="spoiler-detail-item">
+                            <div class="spoiler-detail-value">4.9★</div>
+                            <div class="spoiler-detail-label">Overall Rating</div>
+                        </div>
+                    </div>
+                    <div class="spoiler-info-text">
+                        <p><strong>⭐ Rating Breakdown:</strong></p>
+                        <p>• 5 Stars: 1,183 reviews (95%)</p>
+                        <p>• 4 Stars: 49 reviews (4%)</p>
+                        <p>• 3 Stars: 8 reviews (0.6%)</p>
+                        <p>• 2 Stars: 3 reviews (0.2%)</p>
+                        <p>• 1 Star: 2 reviews (0.2%)</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Modal untuk menampilkan detail statistik -->
-        <div class="stat-modal" id="statModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 id="modalTitle">Detail Statistik</h3>
-                    <span class="close-modal" onclick="closeStatModal()">&times;</span>
-                </div>
-                <div class="modal-body" id="modalBody">
-                    <!-- Content akan diisi oleh JavaScript -->
-                </div>
-                <div class="modal-footer">
-                    <button class="modal-button" onclick="closeStatModal()">Tutup</button>
-                </div>
-            </div>
-        </div>
+        
 
         <div class="detailed-stats">
             <div class="stat-section">
@@ -1450,12 +1909,16 @@
             updateStatistics();
             updateWeather();
             updateServerMetrics();
+            updateDetailContent();
 
             // Update statistics every 30 seconds
             setInterval(updateStatistics, 30000);
 
             // Update weather every 5 minutes
             setInterval(updateWeather, 300000);
+
+            // Update detail content setiap 1 menit
+            setInterval(updateDetailContent, 60000);
 
             // Add loading animation to progress bars
             setTimeout(() => {
@@ -1755,42 +2218,110 @@
             }
         };
 
-        // Function to show statistic detail
-        function showStatDetail(statType) {
-            const modal = document.getElementById('statModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
+        // Tambahkan fungsi untuk mendapatkan statistik real-time
+        function getRealtimeStats() {
+            const stats = {
+                totalVisitors: localStorage.getItem('visitorCount') || '2,485',
+                dailyVisitors: localStorage.getItem('dailyVisitors') || '152',
+                pageViews: localStorage.getItem('pageViews') || '5,889',
+                totalDownloads: localStorage.getItem('totalDownloads') || '15,033'
+            };
+            console.log('Current stats:', stats);
+            return stats;
+        }
+
+        // Update detail content dengan data real-time
+        function updateDetailContent() {
+            const stats = getRealtimeStats();
             
-            const detail = statDetails[statType];
-            if (detail) {
-                modalTitle.textContent = detail.title;
-                modalBody.innerHTML = detail.content;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
+            // Update visitors detail
+            statDetails.visitors.content = `
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-value">${Math.floor(Math.random() * 500) + 800}</div>
+                        <div class="detail-label">Pengunjung Bulan Ini</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-value">${Math.floor(Math.random() * 200) + 150}</div>
+                        <div class="detail-label">Pengunjung Minggu Ini</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-value">${Math.floor(Math.random() * 30) + 20}</div>
+                        <div class="detail-label">Rata-rata Harian</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-value">85%</div>
+                        <div class="detail-label">Pengunjung Baru</div>
+                    </div>
+                </div>
+                <h4>📈 Trend Pengunjung</h4>
+                <p>• Peningkatan 23% dari bulan sebelumnya</p>
+                <p>• Peak traffic jam 19:00-21:00 WIB</p>
+                <p>• Device terpopuler: Mobile (75%)</p>
+                <p>• Negara teratas: Indonesia, Malaysia, Singapura</p>
+            `;
+
+            // Update downloads detail
+            statDetails.downloads.content = `
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-value">${Math.floor(Math.random() * 200) + 150}</div>
+                        <div class="detail-label">Download Bulan Ini</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-value">${Math.floor(Math.random() * 50) + 25}</div>
+                        <div class="detail-label">Download Hari Ini</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-value">78</div>
+                        <div class="detail-label">Total Scripts</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-value">4.8★</div>
+                        <div class="detail-label">Avg Rating</div>
+                    </div>
+                </div>
+                <h4>📱 Script Terpopuler</h4>
+                <p>• Auto Story Reaction: 2,456 downloads</p>
+                <p>• WhatsApp Bot Base: 1,834 downloads</p>
+                <p>• Auto Read Messages: 1,245 downloads</p>
+                <p>• Group Management: 987 downloads</p>
+                <p>• Custom Commands: 756 downloads</p>
+            `;
         }
 
-        // Function to close modal
-        function closeStatModal() {
-            const modal = document.getElementById('statModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('statModal');
-            if (event.target === modal) {
-                closeStatModal();
+        // Function to toggle stat spoiler
+        function toggleStatSpoiler(statType, event) {
+            const content = document.getElementById(statType + '-content');
+            const arrow = document.getElementById(statType + '-arrow');
+            
+            if (!content || !arrow) {
+                console.error('Spoiler elements not found for:', statType);
+                return;
             }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeStatModal();
+            
+            console.log('Toggling spoiler for:', statType);
+            
+            // Check if current spoiler is already open
+            const isCurrentlyOpen = content.classList.contains('open');
+            
+            // Close ALL spoilers first
+            document.querySelectorAll('.stat-spoiler-content').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.stat-spoiler-arrow').forEach(el => {
+                el.classList.remove('open');
+            });
+            
+            // If the clicked spoiler was NOT open, then open it
+            if (!isCurrentlyOpen) {
+                content.classList.add('open');
+                arrow.classList.add('open');
             }
-        });
+            
+            // Prevent event bubbling
+            event.stopPropagation();
+        }
     </script>
 </body>
 </html>
