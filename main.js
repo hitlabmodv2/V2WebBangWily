@@ -22,19 +22,9 @@ let textIndex = 0;
 function rotateText() {
   if (!typing) return;
 
-  // Tambahkan efek fade out
-  typing.style.opacity = '0';
-  typing.style.transform = 'translateY(-20px)';
-  
-  setTimeout(() => {
-    // Tambahkan emoji tunggal yang sederhana
-    typing.textContent = `${texts[textIndex]}`;
-    textIndex = (textIndex + 1) % texts.length;
-    
-    // Tambahkan efek fade in
-    typing.style.opacity = '1';
-    typing.style.transform = 'translateY(0)';
-  }, 300);
+  // Ganti text langsung tanpa animasi
+  typing.textContent = `${texts[textIndex]}`;
+  textIndex = (textIndex + 1) % texts.length;
 }
 
 // Spoiler functionality
@@ -96,22 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Setup text rotation
   if (typing) {
-    typing.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     typing.textContent = `${texts[0]}`;
     
     // Start rotating text every 10 seconds
     setInterval(rotateText, 10000);
   }
 
-  // Add loading animation to buttons
-  document.querySelectorAll('.modern-button, .spoiler-info a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      this.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        this.style.transform = '';
-      }, 150);
-    });
-  });
+  
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

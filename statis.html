@@ -40,16 +40,13 @@
             background-image: url('https://files.catbox.moe/zrezka.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: var(--text-color);
             min-height: 100vh;
             padding: 20px 0;
-            transition: background 0.5s, color 0.5s;
         }
 
         .container {
             background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 25px;
             padding: 40px;
@@ -57,7 +54,6 @@
             max-width: 1200px;
             margin: 0 auto;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 1.5s ease-in-out;
             position: relative;
         }
 
@@ -66,10 +62,7 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        
 
         .header {
             text-align: center;
@@ -132,15 +125,10 @@
             border: 2px solid var(--gray-bar);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s ease;
             position: relative;
         }
 
-        .stat-spoiler-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent-color);
-        }
+        
 
         .stat-spoiler-header {
             padding: 20px;
@@ -148,13 +136,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .stat-spoiler-header:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
+        
 
         .stat-header-content {
             display: flex;
@@ -178,7 +163,6 @@
             color: white;
             font-weight: bold;
             font-size: 16px;
-            transition: all 0.3s ease;
             flex-shrink: 0;
         }
 
@@ -190,7 +174,6 @@
         .stat-spoiler-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease, padding 0.5s ease;
             background: rgba(0, 0, 0, 0.1);
         }
 
@@ -212,14 +195,9 @@
             border-radius: 12px;
             padding: 15px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
         }
 
-        .spoiler-detail-item:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-2px);
-        }
+        
 
         .spoiler-detail-value {
             font-size: 1.4rem;
@@ -356,7 +334,6 @@
             height: 100%;
             background: linear-gradient(90deg, var(--accent-color), #1ed760);
             border-radius: 4px;
-            transition: width 1s ease;
         }
 
         .system-info {
@@ -1920,37 +1897,10 @@
             // Update detail content setiap 1 menit
             setInterval(updateDetailContent, 60000);
 
-            // Add loading animation to progress bars
-            setTimeout(() => {
-                document.querySelectorAll('.progress-fill').forEach((bar, index) => {
-                    setTimeout(() => {
-                        bar.style.transition = 'width 2s ease';
-                    }, index * 200);
-                });
-            }, 500);
+            
         });
 
-        // Add animation effects
-        function addScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            document.querySelectorAll('.overview-card, .stat-section, .system-item').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        }
-
-        // Initialize animations
-        addScrollAnimations();
+        
 
         // Show/hide scroll to top button
         function handleScrollToTop() {

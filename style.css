@@ -1,4 +1,3 @@
-
 :root {
   --bg-color: #0a0a0a;
   --card-color: rgba(30, 30, 30, 0.9);
@@ -49,7 +48,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   overflow-x: hidden;
 }
 
@@ -66,7 +64,6 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 0 40px rgba(102, 126, 234, 0.2);
   text-align: center;
-  animation: fadeInScale 1s ease-out;
   position: relative;
   overflow: hidden;
 }
@@ -93,31 +90,6 @@ body {
   z-index: 1;
 }
 
-@keyframes fadeInScale {
-  from { 
-    opacity: 0; 
-    transform: scale(0.9) translateY(30px);
-  }
-  to { 
-    opacity: 1; 
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes neonGlow {
-  0%, 100% { 
-    box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue), 0 0 60px var(--neon-blue);
-  }
-  50% { 
-    box-shadow: 0 0 30px var(--neon-purple), 0 0 50px var(--neon-purple), 0 0 70px var(--neon-purple);
-  }
-}
-
 img.profile {
   width: 150px;
   height: 150px;
@@ -127,13 +99,10 @@ img.profile {
   background: var(--primary-gradient);
   padding: 4px;
   margin-bottom: 25px;
-  animation: float 6s ease-in-out infinite, neonGlow 3s ease-in-out infinite;
-  transition: all 0.3s ease;
 }
 
 img.profile:hover {
   transform: scale(1.08) rotate(5deg);
-  animation-play-state: paused;
 }
 
 h1 {
@@ -161,7 +130,6 @@ p.role {
   height: auto;
   margin-bottom: 30px;
   font-weight: 600;
-  /* Styling kotak box yang sederhana */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -172,7 +140,6 @@ p.role {
   box-shadow: 
     0 10px 25px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -187,7 +154,6 @@ p.role {
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Modern Button Styles - No Box Shape */
 .modern-button {
   background: var(--primary-gradient);
   padding: 20px 30px;
@@ -199,7 +165,6 @@ p.role {
   justify-content: center;
   gap: 15px;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-weight: 700;
   font-size: 16px;
   border: none;
@@ -217,7 +182,6 @@ p.role {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.6s;
 }
 
 .modern-button:hover {
@@ -234,7 +198,6 @@ p.role {
   transform: translateY(-2px) scale(0.98);
 }
 
-/* Enhanced Music Player */
 .music-player-content {
   background: 
     linear-gradient(135deg, 
@@ -312,7 +275,6 @@ p.role {
   border-radius: 50%;
   cursor: pointer;
   font-weight: 800;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
   font-size: 24px;
   width: 70px;
@@ -340,7 +302,6 @@ p.role {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 }
 
@@ -356,7 +317,6 @@ p.role {
   box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
 }
 
-/* Main Spoiler Container */
 .main-spoiler-container {
   margin: 25px 0;
   border-radius: 25px;
@@ -372,11 +332,10 @@ p.role {
   backdrop-filter: blur(25px);
   border: 2px solid var(--glassmorphism);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
   position: relative;
+  overflow: visible;
 }
 
-/* Styling khusus untuk spoiler Download Script Bot Gratis */
 #download-script-spoiler {
   background: 
     linear-gradient(135deg, 
@@ -421,7 +380,6 @@ p.role {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: all 0.3s ease;
   font-weight: 700;
   font-size: 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -436,7 +394,6 @@ p.role {
   width: 0;
   height: 3px;
   background: var(--primary-gradient);
-  transition: width 0.4s ease;
 }
 
 .main-spoiler-header:hover {
@@ -449,7 +406,6 @@ p.role {
   width: 100%;
 }
 
-/* Sub Spoiler Grid */
 .sub-spoiler-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -458,13 +414,11 @@ p.role {
   overflow: visible;
 }
 
-/* Sub Spoiler Boxes */
 .sub-spoiler-box {
   background: rgba(255, 255, 255, 0.08);
   border: 2px solid var(--glassmorphism);
   border-radius: 20px;
   overflow: visible;
-  transition: all 0.3s ease;
   cursor: pointer;
   backdrop-filter: blur(15px);
 }
@@ -499,6 +453,7 @@ p.role {
 }
 
 .sub-spoiler-arrow {
+  font-size: 14px;
   background: var(--primary-gradient);
   border-radius: 50%;
   width: 30px;
@@ -508,8 +463,6 @@ p.role {
   justify-content: center;
   color: white;
   font-weight: bold;
-  font-size: 14px;
-  transition: all 0.3s ease;
 }
 
 .sub-spoiler-arrow.open {
@@ -520,7 +473,7 @@ p.role {
 .sub-spoiler-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0;
 }
 
 .sub-spoiler-content.open {
@@ -560,7 +513,6 @@ p.role {
   text-decoration: none;
   border-radius: 25px;
   font-weight: 700;
-  transition: all 0.3s ease;
   box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4);
   font-size: 14px;
 }
@@ -570,7 +522,6 @@ p.role {
   box-shadow: 0 8px 20px rgba(79, 172, 254, 0.6);
 }
 
-/* Enhanced Spoiler Containers */
 .spoiler-container {
   margin: 25px 0;
   border-radius: 25px;
@@ -581,7 +532,6 @@ p.role {
   backdrop-filter: blur(25px);
   border: 2px solid var(--glassmorphism);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
 }
 
 .spoiler-container:hover {
@@ -600,7 +550,6 @@ p.role {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: all 0.3s ease;
   font-weight: 700;
   font-size: 17px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -615,7 +564,6 @@ p.role {
   width: 0;
   height: 3px;
   background: var(--primary-gradient);
-  transition: width 0.4s ease;
 }
 
 .spoiler-header:hover {
@@ -629,7 +577,6 @@ p.role {
 }
 
 .spoiler-arrow {
-  transition: transform 0.4s ease;
   font-size: 18px;
   background: var(--primary-gradient);
   border-radius: 50%;
@@ -650,7 +597,7 @@ p.role {
 .spoiler-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0;
   background: rgba(0, 0, 0, 0.1);
 }
 
@@ -692,7 +639,6 @@ p.role {
   text-decoration: none;
   border-radius: 50px;
   font-weight: 700;
-  transition: all 0.4s ease;
   box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
 }
 
@@ -701,7 +647,6 @@ p.role {
   box-shadow: 0 12px 30px rgba(79, 172, 254, 0.6);
 }
 
-/* Enhanced Toggle Theme Button */
 .toggle-theme {
   position: absolute;
   top: 25px;
@@ -714,7 +659,6 @@ p.role {
   font-size: 22px;
   color: white;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -726,7 +670,6 @@ p.role {
   box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
 }
 
-/* Volume Control Enhancements */
 .volume-control {
   margin: 25px 0;
 }
@@ -769,7 +712,6 @@ p.role {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
-  transition: all 0.3s ease;
 }
 
 .volume-slider::-webkit-slider-thumb:hover {
@@ -785,7 +727,6 @@ p.role {
   font-weight: 700;
 }
 
-/* Progress Bar Enhancements */
 .music-progress {
   margin-top: 25px;
 }
@@ -798,7 +739,6 @@ p.role {
   overflow: hidden;
   margin-bottom: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .progress-bar:hover {
@@ -809,7 +749,6 @@ p.role {
   height: 100%;
   background: var(--success-gradient);
   width: 0%;
-  transition: width 0.1s ease;
   border-radius: 4px;
 }
 
@@ -820,7 +759,6 @@ p.role {
   text-align: center;
 }
 
-/* Music Animation */
 .music-animation {
   display: none;
   justify-content: center;
@@ -837,25 +775,13 @@ p.role {
   width: 5px;
   height: 30px;
   background: var(--success-gradient);
-  animation: musicBounce 1.2s ease-in-out infinite;
   border-radius: 3px;
 }
 
-.music-bar:nth-child(2) { animation-delay: 0.1s; }
-.music-bar:nth-child(3) { animation-delay: 0.2s; }
-.music-bar:nth-child(4) { animation-delay: 0.3s; }
-.music-bar:nth-child(5) { animation-delay: 0.4s; }
-
-@keyframes musicBounce {
-  0%, 100% { 
-    transform: scaleY(0.3);
-    opacity: 0.7;
-  }
-  50% { 
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
+.music-bar:nth-child(2) { }
+.music-bar:nth-child(3) { }
+.music-bar:nth-child(4) { }
+.music-bar:nth-child(5) { }
 
 footer {
   margin-top: 35px;
@@ -864,7 +790,6 @@ footer {
   font-weight: 600;
 }
 
-/* Mobile Responsive */
 @media (max-width: 480px) {
   .container {
     padding: 35px 25px;
@@ -952,29 +877,18 @@ footer {
   }
 }
 
-/* Enhanced animations */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
 .music-btn.playing {
-  animation: pulse 2s infinite;
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection styling */
 ::selection {
   background: rgba(102, 126, 234, 0.3);
   color: var(--text-color);
 }
 
-/* Focus styles for accessibility */
 button:focus, a:focus, input:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
