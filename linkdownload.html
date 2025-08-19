@@ -954,6 +954,34 @@
       }
     }
 
+    /* Animasi untuk card terbaru */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+      }
+    }
+
     @media (max-width: 480px) {
       .main-title {
         font-size: 1.8rem;
@@ -1041,6 +1069,46 @@
     <div class="version-grid" id="version-container">
       <!-- Page 1 Scripts -->
       <div class="version-page" data-page="1" style="display: block;">
+        <!-- Version 3.0 JAULARIAL - LATEST -->
+        <div class="version-card" style="border: 3px solid #ff6b6b; background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 193, 7, 0.15));">
+          <div class="version-header">
+            <div class="version-icon" style="background: linear-gradient(135deg, #ff6b6b, #ffc107); animation: pulse 2s infinite;">🌟</div>
+            <div class="version-info">
+              <h3 style="color: #ff6b6b;">VERSI 3.0 AUTO REACTION STORY - JAULARIAL 🔥</h3>
+              <div class="version-date" style="color: #ffc107; font-weight: bold;">📅 Update: Kamis, Agustus 2025 - TERBARU!</div>
+            </div>
+          </div>
+          <div style="background: rgba(255, 107, 107, 0.1); border: 1px solid #ff6b6b; border-radius: 10px; padding: 15px; margin: 15px 0;">
+            <p style="color: #ff6b6b; font-weight: bold; margin: 0; text-align: center;">🚀 FITUR UNGGULAN TERBARU</p>
+          </div>
+          <ul class="version-features">
+            <li>📖 <strong>Auto Read Status & Story</strong> - Baca semua story otomatis</li>
+            <li>😄 <strong>Smart Auto Reaction</strong> - Reaksi emoji random yang natural</li>
+            <li>🔧 <strong>Kustomisasi Fleksibel</strong> - Atur delay, emoji, dan target</li>
+            <li>📊 <strong>Analytics Dashboard</strong> - Statistik lengkap aktivitas bot</li>
+            <li>⚡ <strong>Hemat Resource</strong> - Optimized untuk semua platform</li>
+            <li>🛡️ <strong>Sensor Nomor</strong> - Proteksi nomor dengan auto sensor</li>
+            <li>🎯 <strong>Auto Online Status</strong> - Selalu tampil online</li>
+            <li>⏱️ <strong>Random Delay</strong> - Delay 1-15 detik untuk keamanan</li>
+          </ul>
+          <div style="background: rgba(40, 167, 69, 0.1); border: 1px solid #28a745; border-radius: 8px; padding: 12px; margin: 15px 0;">
+            <p style="color: #28a745; font-size: 0.9rem; margin: 0;"><strong>🔑 Login Password:</strong> <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; color: #00ff88;">BANGWILY</code></p>
+          </div>
+          <div style="background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; border-radius: 8px; padding: 12px; margin: 15px 0;">
+            <p style="color: #ffc107; font-size: 0.9rem; margin: 5px 0;"><strong>⚙️ Konfigurasi:</strong> Edit config.json untuk custom fitur</p>
+            <p style="color: #ffc107; font-size: 0.9rem; margin: 5px 0;"><strong>📱 Platform:</strong> Termux, Heroku, Replit, Panel</p>
+            <p style="color: #ffc107; font-size: 0.9rem; margin: 5px 0;"><strong>💾 RAM:</strong> Minimum 1GB untuk performa optimal</p>
+          </div>
+          <a href="https://www.mediafire.com/file/xmnsq9n1ku4sv30/Script_BotWa_AutoReaction_JaulAriel.zip/file" target="_blank" class="download-button" style="background: linear-gradient(135deg, #ff6b6b, #ffc107); font-size: 1.1rem; padding: 15px 30px;">
+            🌟 Download JAULARIAL V3.0 - LATEST
+          </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
+        </div>
+
         <!-- Version 10.0.0 -->
         <div class="version-card">
           <div class="version-header">
@@ -1059,6 +1127,11 @@
           <a href="https://pastelink.net/4bq3i2ak" target="_blank" class="download-button">
             📥 Download V10.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 9.0.0 -->
@@ -1079,6 +1152,11 @@
           <a href="https://pastelink.net/i6lv4cyi" target="_blank" class="download-button">
             📥 Download V9.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 8.0.0 -->
@@ -1099,6 +1177,11 @@
           <a href="https://pastelink.net/VVERSIONV8" target="_blank" class="download-button">
             📥 Download V8.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 8.0.0 Premium -->
@@ -1123,6 +1206,11 @@
           <a href="https://pastelink.net/Versionv8" target="_blank" class="download-button">
             🎇 Download Premium V8.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 7.0.0 -->
@@ -1143,6 +1231,11 @@
           <a href="https://pastelink.net/VERSIONV7" target="_blank" class="download-button">
             📥 Download V7.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1166,6 +1259,11 @@
           <a href="https://pastelink.net/VERSIONV6" target="_blank" class="download-button">
             📥 Download V6.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 5.0.0 -->
@@ -1186,6 +1284,11 @@
           <a href="https://pastelink.net/VERSIONV5" target="_blank" class="download-button">
             📥 Download V5.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 4.0.0 -->
@@ -1206,6 +1309,11 @@
           <a href="https://pastelink.net/VERSIONV4" target="_blank" class="download-button">
             📥 Download V4.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Version 3.0.0 -->
@@ -1226,6 +1334,11 @@
           <a href="https://pastelink.net/VERSIONV3" target="_blank" class="download-button">
             📥 Download V3.0.0
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1249,6 +1362,11 @@
           <a href="https://pastelink.net/NewMode" target="_blank" class="download-button">
             📥 Download Mode Script
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- V1 MD -->
@@ -1269,6 +1387,11 @@
           <a href="https://pastelink.net/BangWilyV1" target="_blank" class="download-button">
             📥 Download V1 MD
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Auto Read Story Dika V2 -->
@@ -1289,6 +1412,11 @@
           <a href="https://pastelink.net/DikaV2" target="_blank" class="download-button">
             📥 Download Dika V2
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
 
         <!-- Auto Read Story V4 -->
@@ -1309,6 +1437,11 @@
           <a href="https://pastelink.net/AutoReadStory" target="_blank" class="download-button">
             📥 Download V4
           </a>
+          <div style="margin-top: 10px;">
+            <a href="https://wa.me/6289688206739" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #dc3545, #fd7e14); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
+              📞 Link Rusak? PM Admin
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1489,6 +1622,10 @@
     <div class="note-section">
       <h3>⚠️ NOTE PENTING</h3>
       <p>NO JUAL KAMVRET INI FREE -_- DAN GUNAKAN DENGAN BIJAK</p>
+      <div style="background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; border-radius: 10px; padding: 15px; margin-top: 20px;">
+        <p style="color: #ffc107; font-weight: bold; margin: 0;">🔒 Script dilindungi hak cipta & properti intelektual</p>
+        <p style="color: var(--text-color); margin: 10px 0 0 0; font-size: 0.9rem;">❌ Dilarang memperjualbelikan atau mendistribusikan tanpa izin tertulis dari pengembang</p>
+      </div>
     </div>
 
     <!-- Donation Section -->
